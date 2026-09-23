@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KETUA RT: CRISIS MODE — SIPAKAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        rt: {
+                            dark: '#176B4D',
+                            main: '#3C8D68',
+                            light: '#DDF1E6',
+                            white: '#FFFFFF',
+                            grey: '#F1F4F2',
+                            text: '#202522',
+                            yellow: '#FFD166',
+                            coral: '#EF476F',
+                            blue: '#118AB2'
+                        }
+                    },
+                    boxShadow: {
+                        'sticker': '0 6px 0 0 #176B4D',
+                        'sticker-sm': '0 3px 0 0 #176B4D',
+                        'sticker-coral': '0 4px 0 0 #D03055',
+                        'card': '0 8px 24px -4px rgba(23, 107, 77, 0.12)',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-6px) rotate(2deg)' },
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '25%': { transform: 'translateX(-4px) rotate(-1deg)' },
+                            '75%': { transform: 'translateX(4px) rotate(1deg)' },
+                        },
+                        pop: {
+                            '0%': { transform: 'scale(0.85)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    },
+                    animation: {
+                        floating: 'float 3s ease-in-out infinite',
+                        shaking: 'shake 0.25s ease-in-out infinite',
+                        popIn: 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #202522;
+            color: #202522;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F4F2;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3C8D68;
+            border-radius: 99px;
+        }
+        .sticker-btn {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sticker-btn:active {
+            transform: translateY(4px) !important;
+            box-shadow: 0 0 0 0 transparent !important;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#3C8D68 0.75px, transparent 0.75px);
+            background-size: 12px 12px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-4 text-rt-text antialiased">
+
+    <!-- MAIN APP CONTAINER (BOOTH / MOBILE CONTAINER) -->
+    <div id="app-card" class="w-full max-w-[480px] h-[92vh] max-h-[880px] min-h-[660px] flex flex-col justify-between bg-rt-grey rounded-3xl shadow-2xl overflow-hidden border-4 border-rt-dark relative">
+        
+        <!-- Background Pattern Decor -->
+        <div class="absolute inset-0 bg-pattern pointer-events-none"></div>
+
+        <!-- ================= SCREEN 1: LANDING PAGE ================= -->
+        <div id="screen-landing" class="relative z-10 flex-1 flex flex-col justify-between p-5 sm:p-6 bg-gradient-to-b from-rt-light via-white to-rt-grey overflow-y-auto custom-scrollbar">
+            
+            <div class="text-center pt-2">
+                <!-- Badge Header -->
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-rt-dark text-rt-white rounded-full text-xs font-black tracking-wider uppercase shadow-sm">
+                    <span>🏘️</span> RT MANAGEMENT SIMULATOR
+                </div>
+
+                <!-- Cute CSS/Emoji Visual Art -->
+                <div class="my-4 relative flex justify-center items-center">
+                    <div class="w-28 h-28 bg-rt-light border-4 border-rt-dark rounded-3xl flex items-center justify-center text-5xl shadow-sticker animate-floating relative">
+                        <span id="landing-avatar">👨‍💼</span>
+                        <div class="absolute -top-2 -right-2 bg-rt-yellow text-rt-dark text-xs font-black px-2 py-0.5 rounded-full border-2 border-rt-dark">
+                            RT 05
+                        </div>
+                    </div>
+                    <!-- Speech Bubble -->
+                    <div class="absolute -bottom-2 bg-white border-2 border-rt-dark px-3 py-1 rounded-2xl text-[11px] font-extrabold shadow-sm animate-bounce">
+                        💬 "Warga mulai chat nih... 😳"
+                    </div>
+                    <!-- Decorative Floating Elements -->
+                    <span class="absolute top-0 left-8 text-xl animate-pulse">📋</span>
+                    <span class="absolute bottom-2 right-8 text-xl animate-pulse">💰</span>
+                    <span class="absolute top-2 right-12 text-sm">✨</span>
+                </div>
+
+                <!-- Big Headline -->
+                <h1 class="text-2xl sm:text-3xl font-black text-rt-dark leading-none tracking-tight">
+                    BISA NGGAK KAMU<br>
+                    <span class="text-rt-main">JADI KETUA RT?</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="mt-3 text-xs sm:text-sm font-bold text-rt-text/80 leading-relaxed px-2">
+                    Kas harus aman. Warga harus puas. Data harus rapi. Dan semuanya datang <span class="bg-rt-yellow px-1.5 py-0.5 rounded border border-rt-dark/20 text-rt-dark font-black">BARENGAN!</span>
+                </p>
+            </div>
+
+            <!-- Form & Actions -->
+            <div class="my-4 space-y-3 z-10">
+                <div>
+                    <label for="input-rt-name" class="block text-[11px] font-black uppercase text-rt-dark mb-1">
+                        Nama Ketua RT Kamu:
+                    </label>
+                    <input type="text" id="input-rt-name" placeholder="cth: Pak Budi / Bu Rani" 
+                           class="w-full px-4 py-3 bg-white border-3 border-rt-dark rounded-2xl font-extrabold text-sm text-rt-dark placeholder-rt-text/40 focus:outline-none focus:ring-2 focus:ring-rt-main shadow-inner"
+                           maxlength="20">
+                </div>
+
+                <!-- Pilihan Mode Karakter -->
+                <div>
+                    <label class="block text-[11px] font-black uppercase text-rt-dark mb-1">
+                        Mode Karakter:
+                    </label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" id="gender-male" onclick="selectGender('male')"
+                                class="gender-btn sticker-btn py-2.5 bg-rt-dark text-white font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm">
+                            👨‍💼 Laki-laki
+                        </button>
+                        <button type="button" id="gender-female" onclick="selectGender('female')"
+                                class="gender-btn sticker-btn py-2.5 bg-white text-rt-dark font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm">
+                            👩‍💼 Perempuan
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="startGame()" class="sticker-btn w-full py-3.5 bg-rt-dark hover:bg-rt-main text-white font-black text-sm rounded-2xl border-2 border-rt-dark shadow-sticker flex items-center justify-center gap-2">
+                    <span class="text-lg">🚨</span> MULAI CRISIS MODE
+                </button>
+
+                <button onclick="openHowToPlayModal()" class="sticker-btn w-full py-2.5 bg-white hover:bg-rt-light text-rt-dark font-extrabold text-xs rounded-2xl border-2 border-rt-dark shadow-sticker-sm flex items-center justify-center gap-1.5">
+                    <span>👀</span> Lihat Cara Main & Tantangan
+                </button>
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="text-center pt-1 border-t border-rt-dark/10">
+                <span class="text-[10px] font-black uppercase text-rt-dark/60 tracking-widest">
+                    POWERED BY SIPAKAR ECOSYSTEM
+                </span>
+            </div>
+        </div>
+
+        <!-- ================= HOW TO PLAY MODAL ================= -->
+        <div id="modal-how-to-play" class="hidden absolute inset-0 bg-rt-dark/80 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+            <div class="bg-white border-4 border-rt-dark rounded-3xl p-5 max-w-xs w-full shadow-2xl animate-popIn">
+                <div class="text-center mb-3">
+                    <span class="text-3xl">🤯</span>
+                    <h3 class="text-base font-black text-rt-dark">Kenapa Dibuat Sesulit Ini?</h3>
+                </div>
+                <div class="text-xs text-rt-text/90 font-medium space-y-2 leading-relaxed bg-rt-grey p-3 rounded-2xl border-2 border-rt-dark/20">
+                    <p>Mengaola RT secara manual bukan sekadar simpan kas. Kamu harus menyeimbangkan:</p>
+                    <ul class="list-disc pl-4 font-bold space-y-0.5 text-[11px]">
+                        <li>💰 Kas Keuangan RT</li>
+                        <li>😊 Kepuasan Warga</li>
+                        <li>🤝 Kepercayaan Warga</li>
+                        <li>🧾 Kualitas Data & Bukti Nota</li>
+                    </ul>
+                    <p class="text-[10px] italic text-rt-dark">Setiap keputusan punya efek samping. Jangan biarkan indikator melorot di bawah 20%!</p>
+                </div>
+                <button onclick="closeHowToPlayModal()" class="sticker-btn mt-4 w-full py-2.5 bg-rt-dark text-white font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm">
+                    SIAP, SAYA MENGERTI! 👍
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= SCREEN 2: GAMEPLAY DASHBOARD ================= -->
+        <div id="screen-game" class="hidden relative z-10 flex-1 flex flex-col justify-between bg-rt-grey overflow-hidden">
+            
+            <!-- HUD TOP BAR -->
+            <div class="bg-rt-dark text-white p-3 border-b-4 border-rt-dark shadow-md relative z-20">
+                <!-- Header Info -->
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-rt-light rounded-xl border-2 border-white flex items-center justify-center text-sm">
+                            <span id="hud-avatar">👨‍💼</span>
+                        </div>
+                        <div>
+                            <div id="hud-rt-name" class="text-xs font-black leading-tight text-rt-light">Pak RT</div>
+                            <div class="text-[10px] font-bold text-white/80">Pengurus RT 05</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div id="combo-pill" class="hidden px-2 py-0.5 bg-rt-yellow text-rt-dark rounded-full text-[10px] font-black border border-rt-dark animate-bounce">
+                            🔥 COMBO x2
+                        </div>
+                        <div class="px-3 py-1 bg-rt-main border border-rt-light/30 rounded-xl text-center">
+                            <span class="text-[9px] block text-rt-light font-bold leading-none">RONDE</span>
+                            <span id="hud-round" class="text-xs font-black text-rt-yellow leading-tight">1/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 MAIN STAT CARDS (2x2 GRID) -->
+                <div class="grid grid-cols-2 gap-2 my-1">
+                    <!-- Stat 1: KAS -->
+                    <div class="bg-white text-rt-dark p-2 rounded-xl border-2 border-rt-dark shadow-sm flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-black uppercase text-rt-dark/70">💰 KAS RT</span>
+                            <span id="stat-kas-val" class="text-xs font-black text-rt-dark">Rp1.000k</span>
+                        </div>
+                        <div class="w-full bg-rt-grey h-2 rounded-full overflow-hidden border border-rt-dark/20 mt-1">
+                            <div id="stat-kas-bar" class="bg-rt-main h-full w-full transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2: WARGA -->
+                    <div class="bg-white text-rt-dark p-2 rounded-xl border-2 border-rt-dark shadow-sm flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-black uppercase text-rt-dark/70">😊 KEPUASAN</span>
+                            <span id="stat-puas-val" class="text-xs font-black text-rt-dark">70%</span>
+                        </div>
+                        <div class="w-full bg-rt-grey h-2 rounded-full overflow-hidden border border-rt-dark/20 mt-1">
+                            <div id="stat-puas-bar" class="bg-rt-yellow h-full w-[70%] transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3: TRUST -->
+                    <div class="bg-white text-rt-dark p-2 rounded-xl border-2 border-rt-dark shadow-sm flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-black uppercase text-rt-dark/70">🤝 TRUST</span>
+                            <span id="stat-trust-val" class="text-xs font-black text-rt-dark">70%</span>
+                        </div>
+                        <div class="w-full bg-rt-grey h-2 rounded-full overflow-hidden border border-rt-dark/20 mt-1">
+                            <div id="stat-trust-bar" class="bg-rt-blue h-full w-[70%] transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4: DATA -->
+                    <div class="bg-white text-rt-dark p-2 rounded-xl border-2 border-rt-dark shadow-sm flex flex-col justify-between">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-black uppercase text-rt-dark/70">🧾 KUALITAS DATA</span>
+                            <span id="stat-data-val" class="text-xs font-black text-rt-dark">70%</span>
+                        </div>
+                        <div class="w-full bg-rt-grey h-2 rounded-full overflow-hidden border border-rt-dark/20 mt-1">
+                            <div id="stat-data-bar" class="bg-rt-coral h-full w-[70%] transition-all duration-300"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RT CHAOS BAR -->
+                <div class="mt-2 bg-rt-dark/80 p-2 rounded-xl border border-white/20 flex items-center justify-between gap-2">
+                    <div class="text-[10px] font-black text-rt-light whitespace-nowrap">KEKACAUAN RT:</div>
+                    <div class="flex-1 bg-rt-grey/30 h-2.5 rounded-full overflow-hidden border border-white/30 relative">
+                        <div id="chaos-bar" class="bg-gradient-to-r from-rt-yellow to-rt-coral h-full w-[20%] transition-all duration-300"></div>
+                    </div>
+                    <span id="chaos-text" class="text-[10px] font-black text-rt-yellow">✨ Masih terkendali!</span>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE CRISIS CARD AREA -->
+            <div class="flex-1 p-3 sm:p-4 flex flex-col justify-between overflow-y-auto custom-scrollbar relative">
+                
+                <!-- Crisis Card -->
+                <div id="crisis-card" class="bg-white p-4 sm:p-5 rounded-3xl border-3 border-rt-dark shadow-card animate-popIn">
+                    
+                    <!-- Card Top Header -->
+                    <div class="flex justify-between items-center mb-2">
+                        <span id="crisis-tag" class="px-2.5 py-0.5 bg-rt-light text-rt-dark rounded-full text-[10px] font-black uppercase tracking-wider border border-rt-dark/20">
+                            SITUASI RUTIN
+                        </span>
+                        <!-- Cute Pill Timer -->
+                        <div id="timer-pill" class="px-3 py-1 bg-rt-yellow border-2 border-rt-dark rounded-full text-xs font-black text-rt-dark flex items-center gap-1 shadow-sm">
+                            ⏰ <span id="timer-count">12s</span>
+                        </div>
+                    </div>
+
+                    <!-- Resident Quote / Event Title -->
+                    <h2 id="crisis-title" class="text-base sm:text-lg font-black text-rt-dark leading-snug mb-1">
+                        Lampu Jalan Mati
+                    </h2>
+
+                    <!-- Context Box -->
+                    <div id="crisis-desc" class="p-3 bg-rt-grey rounded-2xl border-2 border-rt-dark/10 text-xs font-extrabold text-rt-text/80 leading-relaxed mb-4 relative">
+                        "Lampu gang utama mati. Warga meminta diperbaiki malam ini juga!"
+                    </div>
+
+                    <!-- Choice Options Container -->
+                    <div id="choices-container" class="space-y-2.5">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Warning Notice Footer -->
+                <div id="game-warning-notice" class="hidden mt-2 p-2 bg-rt-yellow/30 border-2 border-rt-dark rounded-xl text-[10px] font-black text-rt-dark text-center animate-pulse">
+                    ⚠️ Kas RT menipis! Pilihan berbiaya tinggi tidak tersedia.
+                </div>
+            </div>
+
+            <!-- FEEDBACK MODAL POPUP -->
+            <div id="modal-feedback" class="hidden absolute inset-0 bg-rt-dark/80 backdrop-blur-xs z-40 flex items-center justify-center p-4">
+                <div class="bg-white border-4 border-rt-dark rounded-3xl p-5 max-w-xs w-full shadow-2xl animate-popIn text-center">
+                    <div id="feedback-emoji" class="text-4xl mb-1">✨</div>
+                    <h3 id="feedback-title" class="text-base font-black text-rt-dark mb-1">KEPUTUSAN DIAMBIL!</h3>
+                    <p id="feedback-desc" class="text-xs text-rt-text/80 font-bold mb-3">Efek langsung pada kondisi RT:</p>
+
+                    <div id="feedback-diff-list" class="grid grid-cols-2 gap-1.5 text-xs font-black bg-rt-grey p-2.5 rounded-2xl border-2 border-rt-dark/10 mb-4">
+                        <!-- Dynamic diff items -->
+                    </div>
+
+                    <button onclick="proceedToNextRound()" class="sticker-btn w-full py-3 bg-rt-dark hover:bg-rt-main text-white font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker">
+                        LANJUTKAN RONDE ➔
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= SCREEN 3: AUDIT & ENDING ================= -->
+        <div id="screen-ending" class="hidden relative z-10 flex-1 flex flex-col justify-between p-5 bg-white overflow-y-auto custom-scrollbar">
+            
+            <div class="text-center pt-2">
+                <div id="ending-sticker" class="w-20 h-20 bg-rt-light border-3 border-rt-dark rounded-3xl mx-auto flex items-center justify-center text-4xl shadow-sticker animate-floating mb-2">
+                    🏆
+                </div>
+                <div id="ending-badge-status" class="inline-block px-3 py-1 bg-rt-yellow text-rt-dark border-2 border-rt-dark rounded-full text-xs font-black uppercase mb-1">
+                    ✨ AUDIT BERSIH ✓
+                </div>
+                <h1 id="ending-title" class="text-xl font-black text-rt-dark leading-tight">
+                    KETUA RT PROFESIONAL
+                </h1>
+                <p id="ending-subtitle" class="text-xs font-bold text-rt-text/70 mt-0.5">
+                    Laporan Hasil Kepemimpinan Ketua RT
+                </p>
+            </div>
+
+            <!-- Stats Recap Box -->
+            <div class="my-3 p-3 bg-rt-grey rounded-2xl border-2 border-rt-dark space-y-2">
+                <div class="flex justify-between items-center text-xs border-b border-rt-dark/10 pb-1 font-bold">
+                    <span>💰 Sisa Kas RT:</span>
+                    <span id="end-stat-kas" class="font-black text-rt-dark">Rp0</span>
+                </div>
+                <div class="flex justify-between items-center text-xs border-b border-rt-dark/10 pb-1 font-bold">
+                    <span>😊 Kepuasan Warga:</span>
+                    <span id="end-stat-puas" class="font-black text-rt-dark">0%</span>
+                </div>
+                <div class="flex justify-between items-center text-xs border-b border-rt-dark/10 pb-1 font-bold">
+                    <span>🤝 Kepercayaan Warga:</span>
+                    <span id="end-stat-trust" class="font-black text-rt-dark">0%</span>
+                </div>
+                <div class="flex justify-between items-center text-xs font-bold">
+                    <span>🧾 Kualitas Data:</span>
+                    <span id="end-stat-data" class="font-black text-rt-dark">0%</span>
+                </div>
+            </div>
+
+            <!-- Narrative / Decision Footprint -->
+            <div class="p-3 bg-rt-light/60 rounded-2xl border-2 border-rt-dark/20 text-xs font-extrabold text-rt-dark leading-relaxed mb-2">
+                <p id="ending-narrative">
+                    Kamu berhasil menjaga kas tetap aman, warga puas, dan data tercatat dengan teratur!
+                </p>
+            </div>
+
+            <!-- CTA Transition Button -->
+            <button onclick="goToSolutionScreen()" class="sticker-btn w-full py-3.5 bg-rt-dark hover:bg-rt-main text-white font-black text-xs rounded-2xl border-2 border-rt-dark shadow-sticker flex items-center justify-center gap-2">
+                <span>LIHAT SOLUSI SIPAKAR</span> ➡️
+            </button>
+        </div>
+
+        <!-- ================= SCREEN 4: SOLUTION & SIPAKAR TRANSITION ================= -->
+        <div id="screen-solution" class="hidden relative z-10 flex-1 flex flex-col justify-between p-5 bg-gradient-to-b from-white via-rt-light to-white overflow-y-auto custom-scrollbar">
+            
+            <div>
+                <div class="text-center pt-1 mb-3">
+                    <span class="px-3 py-1 bg-rt-yellow text-rt-dark border-2 border-rt-dark rounded-full text-[10px] font-black uppercase">
+                        💡 EVALUASI SIMULASI
+                    </span>
+                    <h1 class="text-lg font-black text-rt-dark mt-2 leading-snug">
+                        "KAMU NGERASA RIBET NGGAK?"
+                    </h1>
+                </div>
+
+                <!-- Chat Breakdown -->
+                <div class="p-3 bg-white border-2 border-rt-dark rounded-2xl text-xs font-bold text-rt-text/80 leading-relaxed mb-3 shadow-sm">
+                    💬 Harus ingat saldo... iuran... bukti nota hilang... warga nanya terus di grup...
+                    <div class="mt-1 text-rt-coral font-black">😵‍💫 Bayangin kalau semuanya dicatat manual tiap hari.</div>
+                </div>
+
+                <div class="text-center my-2">
+                    <div class="text-xs font-black uppercase text-rt-dark tracking-wider">✨ DI SINILAH SOLUSINYA ✨</div>
+                    <h2 class="text-xl font-black text-rt-dark">SIPAKAR</h2>
+                    <p class="text-[10px] font-extrabold text-rt-main uppercase">Sistem Informasi Pengelolaan Anggaran & Kas RT</p>
+                </div>
+
+                <!-- 4 Solution Cards -->
+                <div class="grid grid-cols-2 gap-2 my-3">
+                    <div class="p-2.5 bg-white border-2 border-rt-dark rounded-xl shadow-sm text-left">
+                        <div class="text-lg mb-0.5">💰</div>
+                        <div class="text-[11px] font-black text-rt-dark leading-tight">Pemantauan Kas</div>
+                        <div class="text-[9px] text-rt-text/70 font-bold leading-tight mt-0.5">Kondisi kas real-time & terstruktur.</div>
+                    </div>
+
+                    <div class="p-2.5 bg-white border-2 border-rt-dark rounded-xl shadow-sm text-left">
+                        <div class="text-lg mb-0.5">🧾</div>
+                        <div class="text-[11px] font-black text-rt-dark leading-tight">Pencatatan Terpusat</div>
+                        <div class="text-[9px] text-rt-text/70 font-bold leading-tight mt-0.5">Nota & transaksi aman satu pintu.</div>
+                    </div>
+
+                    <div class="p-2.5 bg-white border-2 border-rt-dark rounded-xl shadow-sm text-left">
+                        <div class="text-lg mb-0.5">📱</div>
+                        <div class="text-[11px] font-black text-rt-dark leading-tight">Transparansi Warga</div>
+                        <div class="text-[9px] text-rt-text/70 font-bold leading-tight mt-0.5">Laporan iuran langsung ke warga.</div>
+                    </div>
+
+                    <div class="p-2.5 bg-white border-2 border-rt-dark rounded-xl shadow-sm text-left">
+                        <div class="text-lg mb-0.5">🏪</div>
+                        <div class="text-[11px] font-black text-rt-dark leading-tight">UMKM Warga</div>
+                        <div class="text-[9px] text-rt-text/70 font-bold leading-tight mt-0.5">Promosi usaha warga di lingkungan RT.</div>
+                    </div>
+                </div>
+
+                <div class="p-2.5 bg-rt-dark text-white rounded-xl text-[11px] font-bold text-center leading-relaxed mb-2 border-2 border-rt-dark">
+                    "Bukan untuk menggantikan Ketua RT. Tapi untuk membantu Ketua RT mengelola semuanya!"
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-2 pt-2 border-t border-rt-dark/10">
+                <a href="https://www.figma.com/proto/gW3ivoT2zVXFnswxjk1Qz4/Mock-Up-SIPAKAR?node-id=0-1&t=74Qx7RdjIWHamIlA-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="sticker-btn w-full py-3 bg-rt-main hover:bg-rt-dark text-white font-black text-xs rounded-2xl border-2 border-rt-dark shadow-sticker flex items-center justify-center gap-2">
+                    <span>💚</span> LIHAT PROTOTYPE SIPAKAR
+                </a>
+                <div class="text-center text-[10px] font-black text-rt-text/50">
+                    *Prototype UI/UX — Figma (Simulasi Visual App)
+                </div>
+
+                <button onclick="resetToLanding()" class="sticker-btn w-full py-2 bg-white text-rt-dark font-extrabold text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm">
+                    🔄 Mainkan Lagi
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // GAME STATE
+        let playerName = "Ketua RT";
+        let playerGender = "male";
+
+        const characterMode = {
+            male: {
+                avatar: "👨‍💼",
+                title: "Pak RT",
+                label: "Laki-laki"
+            },
+            female: {
+                avatar: "👩‍💼",
+                title: "Bu RT",
+                label: "Perempuan"
+            }
+        };
+
+        function selectGender(gender) {
+            playerGender = gender;
+            const mode = characterMode[gender];
+
+            document.getElementById('gender-male').className =
+                `gender-btn sticker-btn py-2.5 ${gender === 'male' ? 'bg-rt-dark text-white' : 'bg-white text-rt-dark'} font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm`;
+
+            document.getElementById('gender-female').className =
+                `gender-btn sticker-btn py-2.5 ${gender === 'female' ? 'bg-rt-dark text-white' : 'bg-white text-rt-dark'} font-black text-xs rounded-xl border-2 border-rt-dark shadow-sticker-sm`;
+
+            document.getElementById('landing-avatar').textContent = mode.avatar;
+        }
+
+        let currentRound = 1;
+        let comboCount = 0;
+        
+        // 4 Main Stats
+        let statKas = 1000000;
+        let statPuas = 70;
+        let statTrust = 70;
+        let statData = 70;
+
+        // Choice History & Decision Tracking
+        let decisionsTrack = {
+            transparencyCount: 0,
+            ignoredDataCount: 0
+        };
+
+        // Timer Control
+        let timerInterval = null;
+        let currentTimerSec = 12;
+        let maxTimerSec = 12;
+
+        // Queue of Rounds
+        let roundQueue = [];
+
+        // --- ROUND DEFINITIONS ---
+        const standardRounds = [
+            {
+                id: 1,
+                title: "Lampu Jalan Mati",
+                tag: "SITUASI RUTIN",
+                timer: 12,
+                desc: "\"Lampu gang utama mati. Warga meminta diperbaiki malam ini juga!\"",
+                choices: [
+                    {
+                        text: "A. Perbaiki Sekarang",
+                        sub: "Sewa tukang luar cepat",
+                        cost: 250000,
+                        diff: { kas: -250000, puas: 10, trust: 5, data: -2 }
+                    },
+                    {
+                        text: "B. Cari Tukang Warga",
+                        sub: "Lebih hemat & tingkatkan kebersamaan",
+                        cost: 80000,
+                        diff: { kas: -80000, puas: 7, trust: 11, data: 0 }
+                    },
+                    {
+                        text: "C. Tunda Sampai Rapat",
+                        sub: "Simpan kas, perbaiki nanti",
+                        cost: 0,
+                        diff: { kas: 0, puas: -13, trust: -8, data: 0 }
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "17 Agustus + Kas Menipis",
+                tag: "PERMINTAAN DANA",
+                timer: 12,
+                desc: "\"Panitia 17an minta Rp300.000, tapi fasilitas RT juga butuh biaya maintenance!\"",
+                choices: [
+                    {
+                        text: "A. Kasih Rp300.000",
+                        sub: "Dukung penuh kegiatan pemuda",
+                        cost: 300000,
+                        diff: { kas: -300000, puas: 14, trust: 2, data: -1 }
+                    },
+                    {
+                        text: "B. Kasih Rp100.000",
+                        sub: "Bantu secukupnya demi hemat kas",
+                        cost: 100000,
+                        diff: { kas: -100000, puas: 4, trust: 10, data: 0 }
+                    },
+                    {
+                        text: "C. Tolak Permintaan",
+                        sub: "Simpan kas penuh untuk darurat",
+                        cost: 0,
+                        diff: { kas: 0, puas: -12, trust: 4, data: 0 }
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Transaksi Tidak Jelas",
+                tag: "MASALAH DATA & NOTA",
+                timer: 12,
+                desc: "\"Ada transaksi Rp175.000 di catatan tapi nota/bukti fisik hilang misterius!\"",
+                choices: [
+                    {
+                        text: "A. Cari Bukti Dulu",
+                        sub: "Audit ulang sebelum tutup buku",
+                        cost: 0,
+                        diff: { kas: 0, puas: 2, trust: 14, data: 12 },
+                        isTrans: true
+                    },
+                    {
+                        text: "B. Anggap Valid Saja",
+                        sub: "Lewatkan langsung agar praktis",
+                        cost: 0,
+                        diff: { kas: 0, puas: -3, trust: -12, data: -15 },
+                        isIgnore: true
+                    },
+                    {
+                        text: "C. Ganti Uang Pribadi",
+                        sub: "Tutup pakai dompet sendiri",
+                        cost: 175000,
+                        diff: { kas: -175000, puas: 1, trust: -5, data: -8 },
+                        isIgnore: true
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Iuran Menunggak",
+                tag: "PENAGIHAN KAS",
+                timer: 12,
+                desc: "\"8 dari 20 rumah belum bayar iuran bulanan selama 2 bulan berturut-turut.\"",
+                choices: [
+                    {
+                        text: "A. Tagih Sekarang Semuanya",
+                        sub: "Datangi pintu ke pintu tegas",
+                        cost: 0,
+                        diff: { kas: 300000, puas: -5, trust: 3, data: 4 }
+                    },
+                    {
+                        text: "B. Buat Rekap & Pengingat",
+                        sub: "Bagikan rekap transparan ke grup WA",
+                        cost: 0,
+                        diff: { kas: 180000, puas: 5, trust: 12, data: 10 },
+                        isTrans: true
+                    },
+                    {
+                        text: "C. Biarkan Dulu",
+                        sub: "Hindari konflik antar tetangga",
+                        cost: 0,
+                        diff: { kas: 0, puas: -4, trust: -9, data: 0 }
+                    }
+                ]
+            },
+            {
+                id: 5,
+                title: "Warga Menuntut Laporan",
+                tag: "TRANSPARANSI KAS",
+                timer: 10,
+                desc: "\"Di grup WA RT: 'Kas RT sebenarnya berapa sih? Dipakai buat apa aja?!'\"",
+                choices: [
+                    {
+                        text: "A. Tampilkan Data Terverifikasi",
+                        sub: "Rincian kas + foto bukti nota",
+                        cost: 0,
+                        diff: { kas: 0, puas: 7, trust: 18, data: 10 },
+                        isTrans: true
+                    },
+                    {
+                        text: "B. Kirim Saldo Saja",
+                        sub: "Sebutkan nominal angka saja",
+                        cost: 0,
+                        diff: { kas: 0, puas: 0, trust: -7, data: 0 }
+                    },
+                    {
+                        text: "C. Diam Sampai Laporan Lengkap",
+                        sub: "Tunggu akhir bulan baru bicara",
+                        cost: 0,
+                        diff: { kas: 0, puas: -8, trust: -16, data: 0 }
+                    }
+                ]
+            }
+        ];
+
+        const emergencyRounds = [
+            {
+                id: 'E1',
+                title: "🌧️ BANJIR GANG",
+                tag: "🚨 KRISIS DARURAT",
+                timer: 8,
+                desc: "\"Selokan meluap ke jalanan! Warga panik menuntut aksi cepat Ketua RT!\"",
+                choices: [
+                    {
+                        text: "A. Kerja Bakti Warga",
+                        sub: "Beli konsumsi & alat alakadarnya",
+                        cost: 20000,
+                        diff: { kas: -20000, puas: 16, trust: 16, data: 2 }
+                    },
+                    {
+                        text: "B. Panggil Petugas Swasta",
+                        sub: "Sewa pompa air eksternal",
+                        cost: 150000,
+                        diff: { kas: -150000, puas: 12, trust: 10, data: 0 }
+                    },
+                    {
+                        text: "C. Tunggu Surut Saja",
+                        sub: "Hemat kas & pasrah",
+                        cost: 0,
+                        diff: { kas: 0, puas: -18, trust: -14, data: 0 }
+                    }
+                ]
+            },
+            {
+                id: 'E2',
+                title: "🔥 KORSLETING LISTRIK",
+                tag: "🚨 KRISIS DARURAT",
+                timer: 8,
+                desc: "\"Ada percikan api di tiang gang! Bahaya kebakaran permukiman!\"",
+                choices: [
+                    {
+                        text: "A. Hubungi Teknisi Resmi",
+                        sub: "Penanganan cepat berbayar",
+                        cost: 120000,
+                        diff: { kas: -120000, puas: 15, trust: 16, data: 0 }
+                    },
+                    {
+                        text: "B. Putus Listrik & Gotong Royong",
+                        sub: "Tindakan darurat warga bersama",
+                        cost: 30000,
+                        diff: { kas: -30000, puas: 11, trust: 18, data: 2 }
+                    },
+                    {
+                        text: "C. Biarkan Dulu",
+                        sub: "Tunggu PLN tanpa koordinasi",
+                        cost: 0,
+                        diff: { kas: 0, puas: -22, trust: -22, data: -5 }
+                    }
+                ]
+            }
+        ];
+
+        function formatRupiah(num) {
+            return 'Rp' + num.toLocaleString('id-ID');
+        }
+
+        function showScreen(screenId) {
+            ['screen-landing', 'screen-game', 'screen-ending', 'screen-solution'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function openHowToPlayModal() {
+            document.getElementById('modal-how-to-play').classList.remove('hidden');
+        }
+
+        function closeHowToPlayModal() {
+            document.getElementById('modal-how-to-play').classList.add('hidden');
+        }
+
+        function resetToLanding() {
+            showScreen('screen-landing');
+        }
+
+        function startGame() {
+            const inputVal = document.getElementById('input-rt-name').value.trim();
+            const mode = characterMode[playerGender];
+
+            playerName = inputVal !== "" ? inputVal : mode.title;
+            document.getElementById('hud-rt-name').textContent = playerName;
+            document.getElementById('hud-avatar').textContent = mode.avatar;
+
+            // Reset Stats
+            statKas = 1000000;
+            statPuas = 70;
+            statTrust = 70;
+            statData = 70;
+            comboCount = 0;
+            currentRound = 0;
+
+            decisionsTrack = {
+                transparencyCount: 0,
+                ignoredDataCount: 0
+            };
+
+            // Prepare Queue (Inject random crisis)
+            roundQueue = [...standardRounds];
+            const crisis = emergencyRounds[Math.floor(Math.random() * emergencyRounds.length)];
+            roundQueue.splice(2, 0, crisis); // Inject at round 3 position
+
+            updateHUD();
+            showScreen('screen-game');
+            loadNextRound();
+        }
+
+        function updateHUD() {
+            // Update Stat Values & Bars
+            document.getElementById('stat-kas-val').textContent = formatRupiah(statKas).replace('Rp', 'Rp').replace(',00', '');
+            document.getElementById('stat-kas-bar').style.width = `${Math.min(100, (statKas / 1000000) * 100)}%`;
+
+            document.getElementById('stat-puas-val').textContent = `${statPuas}%`;
+            document.getElementById('stat-puas-bar').style.width = `${statPuas}%`;
+
+            document.getElementById('stat-trust-val').textContent = `${statTrust}%`;
+            document.getElementById('stat-trust-bar').style.width = `${statTrust}%`;
+
+            document.getElementById('stat-data-val').textContent = `${statData}%`;
+            document.getElementById('stat-data-bar').style.width = `${statData}%`;
+
+            // Calculate Chaos Level
+            const avgHealth = (statPuas + statTrust + statData) / 3;
+            const chaosPct = Math.max(0, 100 - avgHealth);
+            const chaosBar = document.getElementById('chaos-bar');
+            const chaosText = document.getElementById('chaos-text');
+
+            chaosBar.style.width = `${chaosPct}%`;
+
+            if (chaosPct < 35) {
+                chaosText.textContent = "✨ Masih terkendali!";
+                chaosText.className = "text-[10px] font-black text-rt-yellow";
+            } else if (chaosPct < 65) {
+                chaosText.textContent = "😵 Waduh... mulai chaos!";
+                chaosText.className = "text-[10px] font-black text-rt-coral";
+            } else {
+                chaosText.textContent = "🚨 RT KONDISI KRITIS!";
+                chaosText.className = "text-[10px] font-black text-rt-coral animate-pulse";
+            }
+
+            // Combo Pill
+            const comboPill = document.getElementById('combo-pill');
+            if (comboCount >= 2) {
+                comboPill.textContent = `🔥 COMBO x${comboCount}`;
+                comboPill.classList.remove('hidden');
+            } else {
+                comboPill.classList.add('hidden');
+            }
+
+            // Warning Notice for Low Cash
+            const warningNotice = document.getElementById('game-warning-notice');
+            if (statKas < 150000) {
+                warningNotice.classList.remove('hidden');
+            } else {
+                warningNotice.classList.add('hidden');
+            }
+        }
+
+        function loadNextRound() {
+            if (roundQueue.length === 0) {
+                triggerFinalAudit();
+                return;
+            }
+
+            currentRound++;
+            const data = roundQueue.shift();
+
+            // Check game over
+            if (checkGameOver()) return;
+
+            document.getElementById('hud-round').textContent = `${currentRound}/6`;
+            document.getElementById('crisis-title').textContent = data.title;
+            document.getElementById('crisis-desc').textContent = data.desc;
+
+            const tagEl = document.getElementById('crisis-tag');
+            tagEl.textContent = data.tag;
+            if (data.tag.includes('KRITIS')) {
+                tagEl.className = "px-2.5 py-0.5 bg-rt-coral text-white rounded-full text-[10px] font-black uppercase tracking-wider border border-rt-dark animate-pulse";
+            } else {
+                tagEl.className = "px-2.5 py-0.5 bg-rt-light text-rt-dark rounded-full text-[10px] font-black uppercase tracking-wider border border-rt-dark/20";
+            }
+
+            // High Difficulty Adjustment: If DATA is low (<40%), timer drops!
+            let timeLimit = data.timer;
+            if (statData < 40) {
+                timeLimit = Math.max(5, timeLimit - 3);
+            }
+
+            maxTimerSec = timeLimit;
+            currentTimerSec = timeLimit;
+            startTimer();
+
+            // Render Choice Buttons
+            const choicesContainer = document.getElementById('choices-container');
+            choicesContainer.innerHTML = '';
+
+            data.choices.forEach((choice) => {
+                const btn = document.createElement('button');
+                const isDisabled = (choice.cost > statKas);
+
+                btn.className = `sticker-btn w-full p-3 rounded-2xl border-2 border-rt-dark text-left flex justify-between items-center transition shadow-sticker-sm ${
+                    isDisabled ? 'bg-rt-grey/60 opacity-50 cursor-not-allowed' : 'bg-white hover:bg-rt-light'
+                }`;
+
+                btn.innerHTML = `
+                    <div>
+                        <div class="text-xs font-black text-rt-dark">${choice.text}</div>
+                        <div class="text-[10px] font-bold text-rt-text/60">${choice.sub}</div>
+                    </div>
+                    <div>
+                        ${choice.cost > 0 
+                            ? `<span class="text-[10px] font-black bg-rt-coral/20 text-rt-coral px-2 py-0.5 rounded-md border border-rt-coral/30">-${formatRupiah(choice.cost)}</span>`
+                            : `<span class="text-[10px] font-black bg-rt-light text-rt-dark px-2 py-0.5 rounded-md border border-rt-dark/20">Rp0</span>`
+                        }
+                    </div>
+                `;
+
+                if (!isDisabled) {
+                    btn.onclick = () => handleSelectChoice(choice);
+                } else {
+                    btn.onclick = () => {
+                        alert("Kas RT tidak mencukupi untuk pilihan ini!");
+                    };
+                }
+
+                choicesContainer.appendChild(btn);
+            });
+
+            updateHUD();
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            const timerPill = document.getElementById('timer-pill');
+            const timerCount = document.getElementById('timer-count');
+
+            const updateTimerUI = () => {
+                timerCount.textContent = `${currentTimerSec}s`;
+                if (currentTimerSec <= 5) {
+                    timerPill.className = "px-3 py-1 bg-rt-coral border-2 border-rt-dark rounded-full text-xs font-black text-white flex items-center gap-1 shadow-sm animate-pulse";
+                } else {
+                    timerPill.className = "px-3 py-1 bg-rt-yellow border-2 border-rt-dark rounded-full text-xs font-black text-rt-dark flex items-center gap-1 shadow-sm";
+                }
+            };
+
+            updateTimerUI();
+
+            timerInterval = setInterval(() => {
+                currentTimerSec--;
+                updateTimerUI();
+
+                if (currentTimerSec <= 0) {
+                    clearInterval(timerInterval);
+                    handleTimeout();
+                }
+            }, 1000);
+        }
+
+        function handleTimeout() {
+            // Severe penalties on timeout
+            statPuas = Math.max(0, statPuas - 12);
+            statTrust = Math.max(0, statTrust - 12);
+            statData = Math.max(0, statData - 10);
+            comboCount = 0;
+
+            showFeedbackModal(
+                "⏰ WAKTU HABIS!",
+                "Ketua RT lambat mengambil keputusan! Warga kesal dan pencatatan kas jadi makin tak beraturan.",
+                { puas: -12, trust: -12, data: -10 },
+                "😵"
+            );
+        }
+
+        function handleSelectChoice(choice) {
+            clearInterval(timerInterval);
+
+            const diff = choice.diff;
+
+            // Apply metric updates
+            statKas = Math.max(0, statKas + (diff.kas || 0));
+            statPuas = Math.min(100, Math.max(0, statPuas + (diff.puas || 0)));
+            statTrust = Math.min(100, Math.max(0, statTrust + (diff.trust || 0)));
+            statData = Math.min(100, Math.max(0, statData + (diff.data || 0)));
+
+            // Track combos
+            if ((diff.puas >= 0 || diff.trust >= 0) && diff.data >= 0) {
+                comboCount++;
+                if (typeof confetti === 'function' && comboCount >= 2) {
+                    confetti({ particleCount: 30, spread: 60, origin: { y: 0.6 } });
+                }
+            } else {
+                comboCount = 0;
+            }
+
+            // Track decision footprint
+            if (choice.isTrans) decisionsTrack.transparencyCount++;
+            if (choice.isIgnore) decisionsTrack.ignoredDataCount++;
+
+            updateHUD();
+
+            let emoji = "✨";
+            if (diff.puas < 0 || diff.trust < 0) emoji = "😵";
+
+            showFeedbackModal(
+                "KEPUTUSAN DIAMBIL!",
+                "Keputusan telah dijalankan. Dampak langsung terhadap indikator RT:",
+                diff,
+                emoji
+            );
+        }
+
+        function showFeedbackModal(title, desc, diff, emoji) {
+            document.getElementById('feedback-emoji').textContent = emoji;
+            document.getElementById('feedback-title').textContent = title;
+            document.getElementById('feedback-desc').textContent = desc;
+
+            const list = document.getElementById('feedback-diff-list');
+            list.innerHTML = '';
+
+            const items = [
+                { label: '💰 Kas', val: diff.kas, isMoney: true },
+                { label: '😊 Kepuasan', val: diff.puas },
+                { label: '🤝 Trust', val: diff.trust },
+                { label: '🧾 Data', val: diff.data }
+            ];
+
+            items.forEach(item => {
+                if (item.val !== undefined && item.val !== 0) {
+                    const isPos = item.val > 0;
+                    const sign = isPos ? '+' : '';
+                    const color = isPos ? 'text-rt-dark font-black' : 'text-rt-coral font-black';
+                    const display = item.isMoney ? `${sign}${formatRupiah(item.val)}` : `${sign}${item.val}%`;
+
+                    const div = document.createElement('div');
+                    div.className = "flex justify-between items-center bg-white p-1.5 rounded-lg border border-rt-dark/10";
+                    div.innerHTML = `<span>${item.label}</span><span class="${color}">${display}</span>`;
+                    list.appendChild(div);
+                }
+            });
+
+            document.getElementById('modal-feedback').classList.remove('hidden');
+        }
+
+        function proceedToNextRound() {
+            document.getElementById('modal-feedback').classList.add('hidden');
+            if (checkGameOver()) return;
+            loadNextRound();
+        }
+
+        function checkGameOver() {
+            if (statPuas < 20 || statTrust < 20 || statData < 20) {
+                clearInterval(timerInterval);
+                triggerEarlyGameOver();
+                return true;
+            }
+            return false;
+        }
+
+        function triggerEarlyGameOver() {
+            showScreen('screen-ending');
+
+            document.getElementById('ending-sticker').textContent = "🚨";
+            document.getElementById('ending-badge-status').textContent = "🚨 AUDIT BERMASALAH";
+            document.getElementById('ending-badge-status').className = "inline-block px-3 py-1 bg-rt-coral text-white border-2 border-rt-dark rounded-full text-xs font-black uppercase mb-1";
+            
+            document.getElementById('ending-title').textContent = "RAPAT DARURAT WARGA";
+            document.getElementById('ending-subtitle').textContent = `Masa Jabatan ${playerName} Dihentikan!`;
+
+            document.getElementById('end-stat-kas').textContent = formatRupiah(statKas);
+            document.getElementById('end-stat-puas').textContent = `${statPuas}%`;
+            document.getElementById('end-stat-trust').textContent = `${statTrust}%`;
+            document.getElementById('end-stat-data').textContent = `${statData}%`;
+
+            document.getElementById('ending-narrative').textContent = 
+                "Rapat darurat digelar karena kepuasan, kepercayaan, atau data RT merosot di bawah 20%! Warga meminta pertanggungjawaban pengelolaan yang tidak terstruktur.";
+        }
+
+        function triggerFinalAudit() {
+            showScreen('screen-ending');
+
+            document.getElementById('end-stat-kas').textContent = formatRupiah(statKas);
+            document.getElementById('end-stat-puas').textContent = `${statPuas}%`;
+            document.getElementById('end-stat-trust').textContent = `${statTrust}%`;
+            document.getElementById('end-stat-data').textContent = `${statData}%`;
+
+            const badge = document.getElementById('ending-badge-status');
+
+            if (statData >= 75 && decisionsTrack.ignoredDataCount === 0) {
+                badge.textContent = "✨ AUDIT BERSIH ✓";
+                badge.className = "inline-block px-3 py-1 bg-rt-light text-rt-dark border-2 border-rt-dark rounded-full text-xs font-black uppercase mb-1";
+            } else if (statData >= 50) {
+                badge.textContent = "⚠️ PERLU PERBAIKAN";
+                badge.className = "inline-block px-3 py-1 bg-rt-yellow text-rt-dark border-2 border-rt-dark rounded-full text-xs font-black uppercase mb-1";
+            } else {
+                badge.textContent = "🚨 AUDIT BERMASALAH";
+                badge.className = "inline-block px-3 py-1 bg-rt-coral text-white border-2 border-rt-dark rounded-full text-xs font-black uppercase mb-1";
+            }
+
+            // Determine Sticker Ending
+            let icon = "😮‍💨";
+            let title = "KETUA RT BERTAHAN";
+            let narrative = "";
+
+            if (statData >= 75 && statTrust >= 75 && statPuas >= 70) {
+                icon = "🏆";
+                title = "KETUA RT PROFESIONAL";
+                narrative = `Luar biasa! ${playerName} berhasil menjaga stabilitas kas, kepuasan warga, serta tertib administrasi keuangan secara seimbang!`;
+                if (typeof confetti === 'function') confetti({ particleCount: 80, spread: 80, origin: { y: 0.5 } });
+            } else if (statData < 50) {
+                icon = "🧾";
+                title = "BENDAHARA KEHILANGAN JEJAK";
+                narrative = "Kas mungkin masih ada, tapi pencatatan nota yang berantakan membuat warga curiga ke mana aliran dana iuran pergi.";
+            } else if (statKas < 200000) {
+                icon = "💸";
+                title = "KAS RT SEKARAT";
+                narrative = "Semua permintaan warga dipenuhi tanpa perhitungan matang. Kas RT menipis hingga tidak ada cadangan dana darurat!";
+            } else if (statTrust < 50) {
+                icon = "📢";
+                title = "KETUA RT DIPERTANYAKAN";
+                narrative = "Kurangnya transparansi laporan membuat grup WA warga terus bergejolak dan curiga.";
+            } else {
+                icon = "😮‍💨";
+                title = "KETUA RT BERTAHAN";
+                narrative = "Kamu berhasil menyelesaikan masa krisis dengan kondisi RT relatif stabil, meskipun keteteran di pencatatan.";
+            }
+
+            document.getElementById('ending-sticker').textContent = icon;
+            document.getElementById('ending-title').textContent = title;
+            document.getElementById('ending-subtitle').textContent = `Hasil Kepemimpinan ${playerName}`;
+            document.getElementById('ending-narrative').textContent = narrative;
+        }
+
+        function goToSolutionScreen() {
+            showScreen('screen-solution');
+        }
+    </script>
+</body>
+</html>
